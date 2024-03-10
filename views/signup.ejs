@@ -1,0 +1,48 @@
+<%- include('./partials/nav2') %>
+ 
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          Sign Up
+        </div>
+        <div class="card-body">
+          <form method="post" action="/signup">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input name="name" type="text" class="form-control mb-2" id="name" placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input name="username" type="email" class="form-control mb-2" id="email" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input name="password" type="password" class="form-control mb-2" id="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <input type="password" class="form-control mb-2" id="confirmPassword" placeholder="Confirm password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mt-2">Sign Up</button>
+          </form>
+          <div class="mt-2">
+            <p>Already a user?</p>
+            <a href="/signin">Sign In</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer fixed-bottom mt-auto py-3 bg-dark text-white">
+  <div class="container-fluid text-center">
+    <span >©2024 Sampark. All rights reserved.</span>
+  </div>
+</footer>
+<!-- Footer -->
+
+</body>
+</html>

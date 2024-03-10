@@ -1,0 +1,38 @@
+<%- include('./partials/nav2') %>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          Sign In
+        </div>
+        <div class="card-body">
+          <form method="post" action="/signin">
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input name="username" type="email" class="form-control mb-2" id="email" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input name="password" type="password" class="form-control mb-2" id="password" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mt-2">Sign In</button>
+          </form>
+          <div class="mt-2">
+              <p>New user?</p>
+              <a href="/signup">sign up</a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="footer fixed-bottom mt-auto py-3 bg-dark text-white">
+  <div class="container-fluid text-center">
+    <span >©2024 Sampark. All rights reserved.</span>
+  </div>
+</footer>
+<!-- Footer -->
+
+</body>
+</html>

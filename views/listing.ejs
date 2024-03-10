@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Truck Listing</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Custom CSS for additional styling */
+      body {
+        padding-top: 20px;
+        background-color: #f8f9fa;
+      }
+      .card {
+        transition: transform 0.2s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="mb-4">Added Trucks</h2>
+      <a class="mb-4 btn btn-primary" href="/truck">Add Trucks</a>
+
+      <div class="row">
+        <% trucks.forEach(truck => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title"><%= truck.truckName %></h5>
+              <p class="card-text">
+                <strong>Type:</strong> <%= truck.truckType %>
+              </p>
+              <p class="card-text">
+                <strong>Capacity:</strong> <%= truck.capacity %>
+              </p>
+              <p class="card-text">
+                <strong>Destinations:</strong> <%= truck.destinations %>
+              </p>
+              <form action="/booking/<%= truck._id %>" method="GET" class="mb">
+                <input type="hidden" name="truckId" value="<%= truck._id %>" />
+                <button type="submit" class="btn btn-primary book-btn">
+                  Book Truck
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript to handle button click event
+      document.querySelectorAll(".book-btn").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          event.preventDefault(); // Prevent default form submission
+          const form = button.closest("form"); // Find the parent form element
+          form.submit(); // Submit the form
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Truck Booking System</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container mt-5">
+    <h2>Add Truck</h2>
+    <form id="truckForm" action="/trucks" method="POST">
+      <div class="form-group">
+        <label for="truckName">Company Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="truckName"
+          name="truckName"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="truckType">Truck Type:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="truckType"
+          name="truckType"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="capacity">Capacity:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="capacity"
+          name="capacity"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="capacity">Enter Email:</label>
+        <input
+          type="email"
+          class="form-control"
+          id="ownerEmail"
+          name="ownerEmail"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="destinations">Available Destinations:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="destinations"
+          name="destinations"
+          required
+        />
+        <small class="form-text text-muted">
+          Please separate multiple destinations with commas.
+        </small>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Truck</button>
+      <a class=" btn btn-primary" href="/list">Trucks List</a>
+    </form>
+
+    <div id="successMessage" class="mt-4 alert alert-success" style="display: none;">
+      Truck added successfully! <button type="button" class="close" onclick="closeSuccessMessage()">&times;</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('truckForm').addEventListener('submit', function(event) {
+      // event.preventDefault(); // Prevent form submission
+      showSuccessMessage(); // Show success message
+      setTimeout(closeSuccessMessage, 5000); // Close message after 5 seconds (5000 milliseconds)
+    });
+
+    // Function to show success message after form submission
+    function showSuccessMessage() {
+      document.getElementById('successMessage').style.display = 'block';
+    }
+
+    // Function to close success message
+    function closeSuccessMessage() {
+      document.getElementById('successMessage').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
